@@ -1,0 +1,393 @@
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: transparent;
+  color: #333;
+  line-height: 1.6;
+}
+
+.bg-butterfly{
+  background-image: url('/img/butterfly_bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Pastikan header full width */
+header {
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Pastikan elemen utama header merentang penuh */
+.header-main {
+  width: 100%;
+  max-width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 30px;
+  height: 90px I !important;
+  box-sizing: border-box;
+  background-color: rgb(38, 128, 206);
+}
+
+.header-main .logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.header-main .logo img {
+  height: 80% !important;
+  max-height: 80px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin-right: 10px;
+}
+
+.kubidu {
+  font-size: 1.8rem !important;
+  font-weight: 700;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: #ffffff;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0;
+  background-color: transparent;
+  border-top: none;
+  border-bottom: none;
+}
+
+.nav-button {
+  padding: 8px 15px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background-color: transparent;
+  cursor: pointer;
+  text-align: center;
+  flex-grow: 0;
+  margin: 0 5px;
+  text-decoration: none;
+  color: #343a40;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.nav-button.active,
+.nav-button:hover {
+  background-color: #e9ecef;
+  color: #007bff;
+  border: 1px solid #b3cde3;
+  transform: translateY(-1px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.container {
+    max-width: 80%;
+    margin: 10px auto;
+    margin-top: 20px;
+}
+
+h2, h3, h4 {
+    color: #151515;
+}
+
+.container h1, h3 {
+  text-align: left;
+  color: #383838;
+  font-weight: 700;
+}
+
+.pretest-header{
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.quiz-box {
+  max-width: 700px;
+  margin: 0 auto;
+  background: linear-gradient(145deg, #ffffff, #f9fafe);
+  border: 1px solid #dee3ef;
+  border-radius: 16px;
+  padding: 20px 30px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quiz-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-box h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #004aad;
+  line-height: 1.5;
+}
+
+/* ================================
+   QUIZ OPTIONS
+   ================================ */
+
+.option-group {
+  background: #f9f9fc;
+  border: 1px solid #d8dee9;
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.option-group:hover {
+  background-color: #eaf3ff;
+  border-color: #007bff;
+  transform: translateY(-1px);
+}
+
+.option-group input[type="radio"] {
+  accent-color: #007bff;
+  transform: scale(1.1);
+}
+
+.option-group label {
+  flex: 1;
+  color: #333;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* ================================
+   SUBMIT BUTTON
+   ================================ */
+
+.quiz-box button[type="submit"] {
+  display: block;
+  width: 100%;
+  background: #007bff;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  margin-top: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.quiz-box button[type="submit"]:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 86, 179, 0.25);
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+   ================================ */
+
+@media (max-width: 600px) {
+  .quiz-box {
+    padding: 18px 20px;
+  }
+
+  .quiz-box h4 {
+    font-size: 1.1rem;
+  }
+
+  .option-group {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .option-group label {
+    font-size: 0.95rem;
+  }
+}
+
+/* ================================
+   PRETEST RESULT PAGE STYLING
+   ================================ */
+
+.container h2 {
+  text-align: center;
+  color: #0056b3;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.container p {
+  text-align: center;
+  font-size: 1.05rem;
+  color: #444;
+  margin-bottom: 25px;
+}
+
+/* Box hasil skor */
+.score-box {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  padding: 30px 40px;
+  background: linear-gradient(145deg, #f7faff, #ffffff);
+  border: 1px solid #dee3ef;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 6px 14px rgba(0, 86, 179, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.score-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(0, 86, 179, 0.12);
+}
+
+.score-box h3 {
+  font-size: 1.8rem;
+  color: #004aad;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.score-box p {
+  color: #555;
+  font-size: 1.05rem;
+  margin-bottom: 0;
+}
+
+/* Tombol kembali */
+.container a {
+  display: inline-block;
+  background: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.container a:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 86, 179, 0.2);
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+   ================================ */
+@media (max-width: 600px) {
+  .score-box {
+    padding: 20px;
+  }
+
+  .score-box h3 {
+    font-size: 1.4rem;
+  }
+
+  .container a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button, .export-button, .logout-button {
+    background-color: #fcff49;
+    color: rgb(0, 0, 0);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.export-button {
+    background-color: #1f844c !important;
+    width: 22vh;
+}
+
+.logout-button {
+    width: 8vh;
+    font-weight: 700;
+}
+
+button:hover, .export-button:hover, .logout-button:hover {
+    background-color: #0056b3;
+}
+
+.header-dashboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Tabel */
+.table-container {
+    overflow-x: auto;
+    /* Pastikan lebar defaultnya 100% jika Anda ingin tabel memenuhi container */
+    width: 100%;
+    margin-bottom: 20px;
+}
+table {
+    width: 100%; 
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+th, td {
+    white-space: nowrap; /* Mencegah konten baris melengkung ke bawah */
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+th {
+    background-color: #f2f2f2;
+}
+.correct {
+    background-color: #e6ffe6;
+    color: green;
+}
+.incorrect {
+    background-color: #ffe6e6;
+    color: red;
+}
+
+.kembali-pembelajaran{
+  align-items: center;
+  display: inline-block !important;
+  max-width: 50%;
+}

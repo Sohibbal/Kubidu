@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/img/logo_fx.png" />
+    <title>Pretest Soal <%= question.id %></title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/newstyle.css" />
+</head>
+<body>
+      <header>
+        <div class="header-main">
+          <a href="/" class="logo">
+            <img src="/img/logo_fx.png" alt="Logo" />
+          </a>
+          <div class="kubidu">KUBIDU</div>
+          <nav>
+            <a href="/cerita" class="nav-button">Cerita</a>
+            <a href="/video" class="nav-button">Video</a>
+            <a href="/games" class="nav-button">Games</a>
+            <a href="/pembelajaran" class="nav-button">Pembelajaran</a>
+          </nav>
+        </div>
+      </header>
+
+    <div class="container">
+        <div class="pretest-header">
+            <p>Soal <%= currentStep %> dari <%= totalQuestions %></p>
+        </div>
+        
+        <div class="quiz-box">
+            <p style="text-align: left;"><%= currentStep %>. <%= question.text %></p>
+            
+            <form action="/pretest/submit-answer" method="POST"> 
+                <input type="hidden" name="questionId" value="<%= question.id %>">
+                
+                <% for (let key in question.options) { %>
+                    <div class="option-group">
+                        <input type="radio" id="q_<%= question.id %>_<%= key %>" name="studentAnswer" value="<%= key %>" required>
+                        <label for="q_<%= question.id %>_<%= key %>">
+                            <%= key %>. <%= question.options[key] %>
+                        </label>
+                    </div>
+                <% } %>
+                
+                <button type="submit">Jawab & Lanjut</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
