@@ -963,7 +963,7 @@ label.sub-heading {
 }
 .video-wrapper iframe {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 12;
   height: auto;
   display: block;
   border: none;
@@ -1006,8 +1006,8 @@ label.sub-heading {
   justify-content: center;
 }
 .page-section {
-  width: 100% !important;
-  padding: 40px 20px;
+  width: 90% !important;
+  padding: 40px 40px;
   margin-bottom: 40px;
   border-radius: 10px;
 }
@@ -1889,4 +1889,3 @@ label.sub-heading {
     padding: 15px;
   }
 }
-
