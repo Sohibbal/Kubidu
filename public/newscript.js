@@ -456,16 +456,21 @@ function checkMatchingAnswers() {
 /* LOGIKA BARU: KUIS SLIDER (UJI KEMAMPUAN) */
 /* ==================================================== */
 
-        
 // Kita tidak mengirim CORRECT_ANSWERS karena logika scoring dilakukan di server POST /submit-final-quiz
 // Namun, jika Anda perlu kunci jawaban untuk logika front-end, Anda bisa kirim juga.
 
 // Data Kuis (diekstrak dari HTML asli)
 // Pastikan SERVER_QUESTIONS tersedia dari EJS
-if (typeof SERVER_QUESTIONS === 'undefined' || !Array.isArray(SERVER_QUESTIONS) || SERVER_QUESTIONS.length === 0) {
-    console.error("SERVER_QUESTIONS tidak ditemukan atau kosong. Pastikan data disuntikkan di EJS.");
-    // Kita bisa buat dummy data agar initQuiz tidak error
-    const SERVER_QUESTIONS = []; 
+if (
+  typeof SERVER_QUESTIONS === "undefined" ||
+  !Array.isArray(SERVER_QUESTIONS) ||
+  SERVER_QUESTIONS.length === 0
+) {
+  console.error(
+    "SERVER_QUESTIONS tidak ditemukan atau kosong. Pastikan data disuntikkan di EJS."
+  );
+  // Kita bisa buat dummy data agar initQuiz tidak error
+  const SERVER_QUESTIONS = [];
 }
 
 const quizData = SERVER_QUESTIONS; // Gunakan nama quizData untuk konsistensi di JS
@@ -480,199 +485,207 @@ let userAnswers = new Array(TOTAL_QUESTIONS).fill(undefined); // Menyimpan index
 
 // Inisialisasi Kuis: Merender semua soal
 function initQuiz() {
-    const container = document.getElementById("quizContainer");
-    if (!container) return; 
+  const container = document.getElementById("quizContainer");
+  if (!container) return;
 
-    // Kosongkan container dan render semua kartu soal
-    container.innerHTML = "";
-    quizData.forEach((quiz, index) => {
-        const quizCard = document.createElement("div");
-        quizCard.className = `quiz-card card ${index === currentQuestionIndex ? "active" : "inactive"}`;
-        quizCard.id = `quiz-${index}`;
+  // Kosongkan container dan render semua kartu soal
+  container.innerHTML = "";
+  quizData.forEach((quiz, index) => {
+    const quizCard = document.createElement("div");
+    quizCard.className = `quiz-card card ${
+      index === currentQuestionIndex ? "active" : "inactive"
+    }`;
+    quizCard.id = `quiz-${index}`;
 
-        let optionsHTML = "";
-        // Mapping opsi A, B, C, D untuk POST submission yang benar
-        const optionKeys = ['A', 'B', 'C', 'D']; 
-        
-        // Asumsi quiz.options adalah objek {A: 'Opsi A', B: 'Opsi B', ...}
-        Object.keys(quiz.options).forEach((key, optIndex) => {
-            const optionText = quiz.options[key];
-            const isChecked = userAnswers[index] === key; // Cek jawaban tersimpan
-            
-            optionsHTML += `
+    let optionsHTML = "";
+    // Mapping opsi A, B, C, D untuk POST submission yang benar
+    const optionKeys = ["A", "B", "C", "D"];
+
+    // Asumsi quiz.options adalah objek {A: 'Opsi A', B: 'Opsi B', ...}
+    Object.keys(quiz.options).forEach((key, optIndex) => {
+      const optionText = quiz.options[key];
+      const isChecked = userAnswers[index] === key; // Cek jawaban tersimpan
+
+      optionsHTML += `
                 <label class="checkbox-item">
                     <input type="radio" 
                            name="question${index}" 
                            value="${key}" 
                            data-question-id="${quiz.id}"
-                           ${isChecked ? 'checked' : ''}>
+                           ${isChecked ? "checked" : ""}>
                     <span>${key}. ${optionText}</span>
                 </label>
             `;
-        });
+    });
 
-        quizCard.innerHTML = `
+    quizCard.innerHTML = `
             <p class="question-number">Soal ${quiz.id} dari ${TOTAL_QUESTIONS}</p>
             <p class="quiz-question-text">${quiz.id}. ${quiz.text}</p>
             <div class="checkbox-group">${optionsHTML}</div>
         `;
 
-        container.appendChild(quizCard);
+    container.appendChild(quizCard);
+  });
+
+  // Tambahkan event listeners ke radio buttons yang baru dibuat
+  document
+    .querySelectorAll('#quizContainer input[type="radio"]')
+    .forEach((radio) => {
+      radio.addEventListener("change", saveAnswer);
     });
 
-    // Tambahkan event listeners ke radio buttons yang baru dibuat
-    document
-        .querySelectorAll('#quizContainer input[type="radio"]')
-        .forEach((radio) => {
-            radio.addEventListener("change", saveAnswer);
-        });
-
-    // Panggil updateNav/Progress untuk set state awal
-    updateNavigation();
-    updateProgress();
+  // Panggil updateNav/Progress untuk set state awal
+  updateNavigation();
+  updateProgress();
 }
 
 // Simpan jawaban ke array userAnswers
 function saveAnswer(e) {
-    // Ambil index soal dari nama radio button (e.g., 'question0')
-    const questionIndex = parseInt(e.target.name.replace("question", ""));
-    // Simpan nilai (yaitu 'A', 'B', 'C', atau 'D')
-    const answerKey = e.target.value; 
-    
-    userAnswers[questionIndex] = answerKey;
-    updateProgress();
+  // Ambil index soal dari nama radio button (e.g., 'question0')
+  const questionIndex = parseInt(e.target.name.replace("question", ""));
+  // Simpan nilai (yaitu 'A', 'B', 'C', atau 'D')
+  const answerKey = e.target.value;
+
+  userAnswers[questionIndex] = answerKey;
+  updateProgress();
 }
 
 // Navigasi Kuis
 function navigateQuiz(direction) {
-    const prevCard = document.getElementById(`quiz-${currentQuestionIndex}`);
-    if (prevCard) {
-        prevCard.classList.remove("active");
-        prevCard.classList.add("inactive");
-    }
+  const prevCard = document.getElementById(`quiz-${currentQuestionIndex}`);
+  if (prevCard) {
+    prevCard.classList.remove("active");
+    prevCard.classList.add("inactive");
+  }
 
-    currentQuestionIndex += direction;
+  currentQuestionIndex += direction;
 
-    const nextCard = document.getElementById(`quiz-${currentQuestionIndex}`);
-    if (nextCard) {
-        nextCard.classList.remove("inactive");
-        nextCard.classList.add("active");
-    }
+  const nextCard = document.getElementById(`quiz-${currentQuestionIndex}`);
+  if (nextCard) {
+    nextCard.classList.remove("inactive");
+    nextCard.classList.add("active");
+  }
 
-    // Jika userAnswers pada soal saat ini sudah terisi, tandai radio button
-    const savedAnswer = userAnswers[currentQuestionIndex];
-    if (savedAnswer) {
-        const radio = document.querySelector(`input[name="question${currentQuestionIndex}"][value="${savedAnswer}"]`);
-        if (radio) radio.checked = true;
-    }
-    
-    // Update tombol dan progress
-    updateNavigation();
-    updateProgress();
+  // Jika userAnswers pada soal saat ini sudah terisi, tandai radio button
+  const savedAnswer = userAnswers[currentQuestionIndex];
+  if (savedAnswer) {
+    const radio = document.querySelector(
+      `input[name="question${currentQuestionIndex}"][value="${savedAnswer}"]`
+    );
+    if (radio) radio.checked = true;
+  }
+
+  // Update tombol dan progress
+  updateNavigation();
+  updateProgress();
 }
 
 // Update Tombol Navigasi
 function updateNavigation() {
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
-    const submitSection = document.getElementById("submitSection");
-    const questionNumber = document.getElementById("questionNumber");
-    const introBox = document.getElementById("quiz-intro-box");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const submitSection = document.getElementById("submitSection");
+  const questionNumber = document.getElementById("questionNumber");
+  const introBox = document.getElementById("quiz-intro-box");
 
-    if (!prevBtn || !nextBtn || !submitSection || !questionNumber || !introBox) return;
+  if (!prevBtn || !nextBtn || !submitSection || !questionNumber || !introBox)
+    return;
 
-    // Update nomor soal
-    questionNumber.textContent = `Soal ${currentQuestionIndex + 1} dari ${TOTAL_QUESTIONS}`;
+  // Update nomor soal
+  questionNumber.textContent = `Soal ${
+    currentQuestionIndex + 1
+  } dari ${TOTAL_QUESTIONS}`;
 
-    // Tombol Sebelumnya
-    prevBtn.disabled = currentQuestionIndex === 0;
+  // Tombol Sebelumnya
+  prevBtn.disabled = currentQuestionIndex === 0;
 
-    // Tombol Selanjutnya / Submit
-    if (currentQuestionIndex === TOTAL_QUESTIONS - 1) {
-        nextBtn.style.display = "none";
-        submitSection.style.display = "block";
-    } else {
-        nextBtn.style.display = "block";
-        submitSection.style.display = "none";
-    }
+  // Tombol Selanjutnya / Submit
+  if (currentQuestionIndex === TOTAL_QUESTIONS - 1) {
+    nextBtn.style.display = "none";
+    submitSection.style.display = "block";
+  } else {
+    nextBtn.style.display = "block";
+    submitSection.style.display = "none";
+  }
 
-    // Sembunyikan/tampilkan kotak intro
-    introBox.style.display = currentQuestionIndex === 0 ? "block" : "none";
+  // Sembunyikan/tampilkan kotak intro
+  introBox.style.display = currentQuestionIndex === 0 ? "block" : "none";
 }
 
 // Update Progress Bar
 function updateProgress() {
-    const answeredCount = userAnswers.filter((a) => a !== undefined).length;
-    const progressPercent = (answeredCount / TOTAL_QUESTIONS) * 100;
+  const answeredCount = userAnswers.filter((a) => a !== undefined).length;
+  const progressPercent = (answeredCount / TOTAL_QUESTIONS) * 100;
 
-    const progressBar = document.getElementById("progressBar");
-    const progressText = document.getElementById("progressText");
+  const progressBar = document.getElementById("progressBar");
+  const progressText = document.getElementById("progressText");
 
-    if (progressBar) progressBar.style.width = `${progressPercent}%`;
-    if (progressText)
-        progressText.textContent = `${answeredCount} / ${TOTAL_QUESTIONS}`;
+  if (progressBar) progressBar.style.width = `${progressPercent}%`;
+  if (progressText)
+    progressText.textContent = `${answeredCount} / ${TOTAL_QUESTIONS}`;
 }
 
 // Kirim Kuis (Menggunakan AJAX/Fetch ke Express)
 function submitQuiz() {
-    const namaSiswa = document.getElementById("student-name-quiz").value.trim();
+  const namaSiswa = document.getElementById("student-name-quiz").value.trim();
 
-    if (!namaSiswa) {
-        alert("Nama siswa harus diisi!");
-        document.getElementById("student-name-quiz").focus();
-        return;
-    }
+  if (!namaSiswa) {
+    alert("Nama siswa harus diisi!");
+    document.getElementById("student-name-quiz").focus();
+    return;
+  }
 
-    const unanswered = userAnswers.filter((a) => a === undefined).length;
-    if (unanswered > 0) {
-        if (!confirm(`Anda belum menjawab ${unanswered} soal. Yakin ingin submit?`)) return;
-    }
-    
-    // 1. Siapkan data submission dalam format {q1: 'A', q2: 'C', ...}
-    const finalAnswers = {};
-    quizData.forEach((quiz, index) => {
-        // Gunakan ID soal (1, 2, ...) untuk key di server
-        finalAnswers[`q${quiz.id}`] = userAnswers[index];
-    });
+  const unanswered = userAnswers.filter((a) => a === undefined).length;
+  if (unanswered > 0) {
+    if (!confirm(`Anda belum menjawab ${unanswered} soal. Yakin ingin submit?`))
+      return;
+  }
 
-    // Sembunyikan UI dan tampilkan loading sementara
-    document.getElementById("quizContainer").style.display = "none";
-    document.querySelector(".quiz-navigation").style.display = "none";
-    document.getElementById("submitSection").style.display = "none";
-    
-    // 2. Kirim ke Server Express
-    fetch('/submit-final-quiz', { 
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ 
-            studentName: namaSiswa, 
-            answers: finalAnswers 
-        })
+  // 1. Siapkan data submission dalam format {q1: 'A', q2: 'C', ...}
+  const finalAnswers = {};
+  quizData.forEach((quiz, index) => {
+    // Gunakan ID soal (1, 2, ...) untuk key di server
+    finalAnswers[`q${quiz.id}`] = userAnswers[index];
+  });
+
+  // Sembunyikan UI dan tampilkan loading sementara
+  document.getElementById("quizContainer").style.display = "none";
+  document.querySelector(".quiz-navigation").style.display = "none";
+  document.getElementById("submitSection").style.display = "none";
+
+  // 2. Kirim ke Server Express
+  fetch("/submit-final-quiz", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      studentName: namaSiswa,
+      answers: finalAnswers,
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // 3. Tampilkan hasil yang dikembalikan server
+      const resultSection = document.getElementById("resultSection");
+      resultSection.style.display = "block";
+      document.getElementById("scoreDisplay").textContent = `${data.score}/100`;
+
+      let message = "";
+      if (data.score >= 90) {
+        message = `Luar biasa, ${namaSiswa}! Kamu sangat memahami materi ini! 🌟`;
+      } else if (data.score >= 70) {
+        message = `Bagus sekali, ${namaSiswa}! Pemahaman kamu sangat baik! 👏`;
+      } else {
+        message = `Cukup baik, ${namaSiswa}! Terus belajar ya! 💪`;
+      }
+      document.getElementById("scoreMessage").textContent = message;
     })
-    .then(response => response.json())
-    .then(data => {
-        // 3. Tampilkan hasil yang dikembalikan server
-        const resultSection = document.getElementById("resultSection");
-        resultSection.style.display = "block";
-        document.getElementById("scoreDisplay").textContent = `${data.score}/100`;
-
-        let message = "";
-        if (data.score >= 90) {
-            message = `Luar biasa, ${namaSiswa}! Kamu sangat memahami materi ini! 🌟`;
-        } else if (data.score >= 70) {
-            message = `Bagus sekali, ${namaSiswa}! Pemahaman kamu sangat baik! 👏`;
-        } else {
-            message = `Cukup baik, ${namaSiswa}! Terus belajar ya! 💪`;
-        }
-        document.getElementById("scoreMessage").textContent = message;
-    })
-    .catch(error => {
-        console.error('Error submitting quiz:', error);
-        alert('Terjadi kesalahan saat menyimpan hasil. Silakan coba lagi.');
-        // Tampilkan kembali UI jika ada error
-        // ...
+    .catch((error) => {
+      console.error("Error submitting quiz:", error);
+      alert("Terjadi kesalahan saat menyimpan hasil. Silakan coba lagi.");
+      // Tampilkan kembali UI jika ada error
+      // ...
     });
 }
 
@@ -730,8 +743,31 @@ function resetQuiz() {
 // INITIALIZATION
 // ----------------------------------------------------
 document.addEventListener("DOMContentLoaded", function () {
-    // Menjalankan fungsi untuk halaman yang memiliki 'quizContainer'
-    if (document.getElementById("quizContainer")) {
-        initQuiz();
-    }
+  // Menjalankan fungsi untuk halaman yang memiliki 'quizContainer'
+  if (document.getElementById("quizContainer")) {
+    initQuiz();
+  }
+
+  // === SCROLL ANIMATION ===
+  // Menambahkan animasi saat elemen muncul di viewport
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px",
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate-in");
+      }
+    });
+  }, observerOptions);
+
+  // Observe semua elemen yang perlu dianimasi saat scroll
+  const animateElements = document.querySelectorAll(
+    ".feature-card, .cerita-item, .video-item, .game-card"
+  );
+  animateElements.forEach((el) => {
+    observer.observe(el);
+  });
 });
