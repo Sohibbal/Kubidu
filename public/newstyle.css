@@ -345,9 +345,9 @@ textarea.input-field {
   text-align: left;
 }
 
-#belajar-teman{
+/* #belajar-teman{
   width: 60% !important;
-}
+} */
 
 .title-bentuktim {
   text-align: center;
@@ -884,9 +884,7 @@ textarea.input-field {
 }
 
 /* --- Halaman Pembelajaran (Template) --- */
-.page-section:nth-child(odd) {
-  background-color: rgb(204, 232, 255, 0.7);
-}
+
 /* FIX: Aturan .sub-heading ini adalah aturan umum/dasar */
 .sub-heading {
   font-size: 1.2em;
@@ -1011,6 +1009,11 @@ label.sub-heading {
   margin-bottom: 40px;
   border-radius: 10px;
 }
+
+.page-bg{
+  background-color: rgb(204, 232, 255, 0.7);
+}
+
 .page-section:first-child {
   border-top: none;
 }
