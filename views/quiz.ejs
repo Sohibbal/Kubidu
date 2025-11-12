@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h3>Selamat Mengerjakan, <%= studentName %>!</h3>
+        <p>Soal **<%= question.id %>** dari **<%= totalQuestions %>**</p>
+        
+        <div class="quiz-box">
+            <h4><%= question.text %></h4>
+            <form action="/quiz/submit-answer" method="POST">
+                <input type="hidden" name="questionId" value="<%= question.id %>">
+                
+                <% for (let key in question.options) { %>
+                    <div class="option-group">
+                        <input type="radio" id="q_<%= question.id %>_<%= key %>" name="studentAnswer" value="<%= key %>" required>
+                        <label for="q_<%= question.id %>_<%= key %>">
+                            **<%= key %>. ** <%= question.options[key] %>
+                        </label>
+                    </div>
+                <% } %>
+                
+                <button type="submit">Jawab & Lanjut</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

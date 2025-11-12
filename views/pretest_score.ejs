@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/img/logo_fx.png" />
+    <title>Skor Pretest</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/newstyle.css" />
+</head>
+<body>
+      <header>
+        <div class="header-main">
+          <a href="/" class="logo">
+            <img src="/img/logo_fx.png" alt="Logo" />
+          </a>
+          <div class="kubidu">KUBIDU</div>
+          <nav>
+            <a href="/cerita" class="nav-button">Cerita</a>
+            <a href="/video" class="nav-button">Video</a>
+            <a href="/games" class="nav-button">Games</a>
+            <a href="/pembelajaran" class="nav-button">Pembelajaran</a>
+          </nav>
+        </div>
+      </header>
+    <div class="container" style="text-align: center; align-items: center;">
+        <h1 style="text-align: center;">Hasil Pretest</h1>
+        <p>Terima kasih, <%= studentName %>, telah menyelesaikan Pretest.</p>
+        
+        <div class="score-box">
+            <h3>Skor Akhir Anda: <%= score %> / 100</h3>
+            <p>Jumlah Jawaban Benar: <%= totalCorrect %> dari 10 soal.</p>
+        </div>
+        
+        <a href="/pembelajaran" class="kembali-pembelajaran">Kembali ke pembelajaran</a>
+    </div>
+</body>
+</html>

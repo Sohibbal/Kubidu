@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/img/logo_fx.png" />
+    <title>Dashboard Admin</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body class="bg-butterfly">
+    <%- include('partials/dashboard_header') %>
+    <div class="container bg-butterfly">
+      <h1 style="text-align: center">Hasil Kuis Siswa</h1>
+      <a href="/admin/export/quiz" class="export-button">File Excel Kuis</a>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>No.</th>
+              <% quizHeaders.forEach(header => { %>
+              <th><%= header %></th>
+              <% }) %>
+            </tr>
+          </thead>
+          <tbody>
+            <% quizResults.forEach((result, index) => { %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><%= result.studentName %></td>
+              <% for (let i = 1; i <= 10; i++) { const isCorrect =
+              result[`q${i}_correct`]; const cellClass = isCorrect ? 'correct' :
+              'incorrect'; %>
+              <td class="<%= cellClass %>">
+                <%= isCorrect ? 'Benar' : 'Salah' %>
+              </td>
+              <% } %>
+              <td><%= result.totalScore %></td>
+              <td>
+                <%= result.submittedAt.toLocaleString('id-ID', { timeZone:
+                'Asia/Jakarta' }) %>
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+
+      <hr />
+
+      <h1 style="text-align: center">Hasil Diagnostik Siswa</h1>
+      <a href="/admin/export/pretest" class="export-button"
+        >File Excel Diagnostik</a
+      >
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>No.</th>
+              <% pretestHeaders.forEach(header => { %>
+              <th><%= header %></th>
+              <% }) %>
+            </tr>
+          </thead>
+          <tbody>
+            <% pretestResults.forEach((result, index) => { %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><%= result.studentName %></td>
+              <% for (let i = 1; i <= 10; i++) { const isCorrect =
+              result[`q${i}_correct`]; const cellClass = isCorrect ? 'correct' :
+              'incorrect'; %>
+              <td class="<%= cellClass %>">
+                <%= isCorrect ? 'Benar' : 'Salah' %>
+              </td>
+              <% } %>
+              <td><%= result.totalScore %></td>
+              <td>
+                <%= result.submittedAt.toLocaleString('id-ID', { timeZone:
+                'Asia/Jakarta' }) %>
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <footer>
+      <p>&copy;kupukupubirujuara@gmail.com</p>
+    </footer>
+  </body>
+</html>

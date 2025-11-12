@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="/admin.css"> </head>
+<body class="bg-butterfly">
+    <div class="login-wrapper">
+        <div class="login-left">
+            <h1 class="welcome-title">WELCOME</h1>
+            <h2 class="headline-name">ADMIN DASHBOARD KUBIDU</h2>
+            <p class="description-text">
+                Kelola data dan fitur aplikasi Anda dengan mudah dan aman 
+                melalui antarmuka yang modern ini.
+            </p>
+        </div>
+
+        <div class="login-right">
+            <div class="login-card">
+                <h2>Sign in</h2>
+                <p class="small-text">Masukkan kredensial Anda untuk melanjutkan</p>
+
+                <% if (error) { %>
+                    <p class="error-message"><%= error %></p>
+                <% } %>
+
+                <form action="/admin/login" method="POST">
+                    <div class="form-group">
+                        <label for="username">User Name</label>
+                        <input type="text" id="username" name="username" required value="" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="password-group">
+                            <input type="password" id="password" name="password" required value="" placeholder="Password">
+                            <span class="show-password" onclick="togglePasswordVisibility()">SHOW</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-options">
+                        <div class="remember-me">
+                            <input type="checkbox" id="rememberMe" name="rememberMe">
+                            <label for="rememberMe">Remember me</label>
+                        </div>
+                        <!-- <a href="#" class="forgot-password">Forgot Password?</a> -->
+                    </div>
+
+                    <button type="submit">Sign In</button>
+                </form>
+
+                <!-- <div class="signup-link">
+                    <p>Don't have an account? <a href="#">Sign Up</a></p>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePasswordVisibility() {
+            const passwordField = document.getElementById('password');
+            const showHideBtn = document.querySelector('.show-password');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                showHideBtn.textContent = 'HIDE';
+            } else {
+                passwordField.type = 'password';
+                showHideBtn.textContent = 'SHOW';
+            }
+        }
+    </script>
+</body>
+</html>

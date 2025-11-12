@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pembelajaran</title>
+    <link rel="icon" type="image/png" href="/img/logo_fx.png" />
+    <link rel="stylesheet" href="/newstyle.css" />
+  </head>
+
+  <body>
+    <div class="container">
+
+      <header>
+        <div class="header-main">
+          <a href="/" class="logo">
+            <img src="/img/logo_fx.png" alt="" />
+          </a>
+          <div class="kubidu">KUBIDU</div>
+          <nav>
+            <a href="/cerita" class="nav-button">Cerita</a>
+            <a href="/video" class="nav-button">Video</a>
+            <a href="/games" class="nav-button">Games</a>
+            <a href="/pembelajaran" class="nav-button active">Pembelajaran</a>
+          </nav>
+        </div>
+      </header>
+
+      <main class="main-content bg-butterfly">
+      <aside class="side-frame left-frame">
+        <img src="img/kiri_rebung.png" alt="" />
+      </aside>
+        <div class="center-area">
+
+          <section id="uji-kemampuan" class="page-section page-bg">
+            <div class="illustration-container">
+              <img src="/img/uji_diagnostik.png" alt="Ilustrasi Uji Diagnostik" class="illustration-image" />
+            </div>
+            <h3 class="section-heading">Mari Uji Diagnostik!</h3>
+              <div style="max-width: 600px; margin: auto">
+
+                <form id="quiz-form" action="/start" method="POST">
+                  <div class="quiz-input-group">
+                    <label for="studentName" class="">Nama Siswa:</label>
+                    <input type="text" id="studentName" name="studentName" class="input-field" placeholder="Masukkan Nama Lengkap Anda" required />
+                    <input type="hidden" name="examType" value="pretest">
+                  </div>
+                  <button type="submit" class="btn primary-btn" style="margin-top: 40px;">Mulai Uji Diagnostik</button>
+                </form>
+
+              </div>
+          </section>
+
+          <section class="page-section">
+            <div class="next-bentuktim">
+              <div class="title-bentuktim">
+                <div class="illustration-container">
+                  <img src="/img/pet_pengerjaan.png" alt="Ilustrasi Petunjuk Pengerjaan" class="illustration-image" />
+                </div>
+                <h3 style="font-size: 2rem;">Petunjuk Pengerjaan</h3>
+              </div>
+              <ul>
+                <li>Ayo kita berlajar bersama!</li>
+                <li>Bentuk tim hebatmu dan tentukan nama tim.</li>
+                <li>Bacalah petunjuk pengerjaan berikut:</li>
+              </ul>
+              <ol>
+                <li>Kerjakan LKPD sesuai dengan urutan tahapannya.</li>
+                <li>Baca cerita dengan cermat.</li>
+                <li>Tahapan pertama yaitu menentukan masalah pada cerita tentang “upacara yang berwarna”.</li>
+                <li>Tahapan kedua mencari informasi berkaitan dengan cerita “upacara yang berwarna”.</li>
+                <li>Tahapan ketiga berdiskusi berkaitan dengan cerita “upacara yang berwarna” tersebut.</li>
+                <li>Tahapan keempat memberikan solusi untuk masalah pada cerita terserbut. Sebelum memberikan solusi, Ananda akan bermain dahulu MTC-Flashcard.</li>
+                <li>Tahapan kelima menyajikan hasil diskusi dan solusi yang telah ditentukan.</li>
+              </ol>
+            </div>
+          </section> 
+
+          <section class="page-section">
+            <h2 class="section-title">Section Pembelajaran</h2>
+            
+            <div class="pembelajaran-description">
+              <p>
+                Temukan berbagai pembelajaran menarik seputar budaya Indonesia di sini! Mulai dari cerita inspiratif, eksplorasi budaya, hingga kuis seru untuk menguji pengetahuanmu. Yuk, jelajahi dan pelajari kekayaan budaya negeri kita bersama-sama!
+              </p>
+            </div>
+
+            <div class="grid grid-3-cols">
+              <div class="feature-carddd">
+                <div class="icon-circle">🔍</div>
+                <a href="#cari-tahu" style="text-decoration: none">
+                  <h3>Yuk Cari Tahu!</h3>
+                </a>
+                <p>
+                  Jelajahi informasi menarik tentang budaya Indonesia dan temukan hal-hal baru yang menginspirasi
+                </p>
+              </div>
+
+              <div class="feature-carddd">
+                <div class="icon-circle">👥</div>
+                <a href="#belajar-teman" style="text-decoration: none">
+                  <h3>Belajar Bersama Teman</h3>
+                </a>
+                <p>
+                  Belajar lebih seru bersama teman-teman sambil mengenal kekayaan budaya negeri kita
+                </p>
+              </div>
+
+              <div class="feature-carddd">
+                <div class="icon-circle">🗺️</div>
+                <a href="#eksplorasi" style="text-decoration: none">
+                  <h3>Eksplorasi Budaya</h3>
+                </a>
+                <p>
+                  Jelajahi berbagai tradisi, kesenian, dan kearifan lokal dari berbagai daerah di Indonesia
+                </p>
+              </div>
+
+              <div class="feature-carddd">
+                <div class="icon-circle">🎨</div>
+                <a href="#karyamu" style="text-decoration: none">
+                  <h3>Tunjukkan Karyamu</h3>
+                </a>
+                <p>
+                  Bagikan kreativitasmu dan tunjukkan karya-karya yang terinspirasi dari budaya Indonesia
+                </p>
+              </div>
+
+              <div class="feature-carddd">
+                <div class="icon-circle">✅</div>
+                <a href="#ayo-pastikan" style="text-decoration: none">
+                  <h3>Ayo Kita Pastikan</h3>
+                </a>
+                <p>
+                  Verifikasi pemahamanmu tentang budaya Indonesia melalui berbagai aktivitas seru
+                </p>
+              </div>
+
+              <div class="feature-carddd">
+                <div class="icon-circle">🏆</div>
+                <a href="#uji-kemampuan" style="text-decoration: none">
+                  <h3>Ayo Kita Uji Kemampuan</h3>
+                </a>
+                <p>
+                  Uji seberapa dalam pengetahuanmu tentang budaya dan sejarah Indonesia
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section id="cari-tahu" class="page-section page-bg">
+            <div class="illustration-container">
+              <img src="/img/cari_tahu.png" alt="Ilustrasi Yuk Cari Tahu" class="illustration-image" />
+            </div>
+            <h3 class="section-heading">Yuk Cari Tahu</h3>
+            <p
+              style="text-align: center; margin-top: -10px; margin-bottom: 20px"
+            >
+              Tonton dan cermati cerita berikut ini!
+            </p>
+            <div class="grid grid-2-cols">
+              <div class="card card-content">
+                <h4 class="sub-heading" style="margin-top: 0">
+                  Upacara yang Berwarna
+                </h4>
+                <p style="text-align: justify; line-height: 1.6">
+                  Pada tanggal 17 Agustus 2025, Indonesia merayakan Hari
+                  Kemerdekaan yang ke-80. Di sekolah Ani ada pengumuman untuk
+                  upacara memakai pakaian adat daerah. Ani senang sekali karena
+                  ia punya Baju Melayu dari ibunya. Saat hari upacara tiba,
+                  ternyata banyak teman Ani yang tidak memakai pakaian adat.
+                  Dalam amanatnya, Bapak Pembina Upacara berkata: “Dengan
+                  memakai pakaian adat saat upacara, kalian bisa mengenal
+                  pakaian adat Indonesia dan menunjukkan rasa cinta terhadap
+                  budaya kita.
+                </p>
+              </div>
+
+              <div class="video-wrapper">
+              <div class="video-cover" id="videoCover">
+                <img src="img/upacara_bendera.jpg" alt="Cover Video Cerita: Warisan Budaya Riau" class="cover-image" />
+                <div class="play-button">&#9658;</div>
+              </div>
+
+              <iframe
+                id="videoIframe"
+                src=""
+                data-src="https://drive.google.com/file/d/1dNbCzfEY9uymmO_Q8pS87xLm-QZY_ATz/preview"
+                title="Cerita: Warisan Budaya Riau"
+                frameborder="0"
+                allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+            </div>
+          </section>
+
+          <section id="belajar-teman" class="page-section">
+            <div class="illustration-container">
+              <img src="/img/bersama_teman.png" alt="Ilustrasi Belajar Bersama Teman" class="illustration-image" />
+            </div>
+            <h3 class="section-heading">Belajar Bersama Teman</h3>
+
+            <div class="group-select-container">
+              <div class="intro-text">
+                <p style="text-align: center; margin-bottom: 25px;">
+                  Ayo kita belajar bersama! Pilih kelompokmu di bawah ini untuk
+                  memulai diskusi dan proyek bersama teman.
+                </p>
+              </div>
+
+              <div class="group-info-display">
+                Pilih kelompok dari daftar di bawah.
+              </div>
+
+              <label for="group-selector" class="sub-heading"
+                >Pilih Kelompok:</label
+              >
+              <select
+                id="group-selector"
+                class="input-field"
+                onchange="displayGroupInfo()"
+              >
+                <option value="">-- Pilih Kelompok --</option>
+                <option value="A" data-current="0" data-capacity="8">
+                  Kelompok Cekak Musang
+                </option>
+                <option value="B" data-current="0" data-capacity="8">
+                  Kelompok Kebaya Labuh
+                </option>
+                <option value="C" data-current="0" data-capacity="8">
+                  Kelompok Teluk Belanga
+                </option>
+                <option value="D" data-current="0" data-capacity="8">
+                  Kelompok Kebaya Pendek
+                </option>
+              </select>
+
+              <label
+                for="student-name-simple"
+                class="sub-heading"
+                style="margin-top: 20px"
+              >
+                Masukkan Nama Anda:</label
+              >
+              <input
+                type="text"
+                id="student-name-simple"
+                class="input-field"
+                placeholder="Nama Lengkap"
+                required
+              />
+
+              <button
+                class="btn primary-btn"
+                onclick="joinSimpleGroup()"
+                style="margin-top: 30px"
+              >
+                Gabung Kelompok
+              </button>
+            </div>
+          </section>
+
+          <section id="eksplorasi" class="page-section page-bg">
+            <div class="illustration-container">
+              <img src="/img/eks_budaya.png" alt="Ilustrasi Eksplorasi Budaya" class="illustration-image" />
+            <h3 class="section-heading">Eksplorasi Budaya</h3>
+            <div style="max-width: 800px; margin: auto">
+              <h4 class="">
+                Apa yang terjadi pada cerita yang telah kamu tonton dan cermati?
+              </h4>
+              <textarea
+                id="cerita-ringkasan"
+                class="input-field"
+                rows="5"
+                placeholder="Tuliskan ringkasan atau pendapat Ananda mengenai cerita yang telah ditonton di sini..."
+                style="resize: vertical"
+              ></textarea>
+              <div style="display: flex; justify-content: center; margin-top: 10px;">
+                <button
+                  onclick="checkRingkasan(this)"
+                  class="btn secondary-btn"
+                >
+                  Simpan
+                </button>
+              </div>
+
+              <h4 class="" style="margin-top: 40px">
+                Sebelum menentukan solusi dari masalah yang terjadi, mari
+                eksplorasi dan diskusikan. Terdapat 6 gambar baju adat, tentukan asal provinsi dari gambar
+                tersebut
+              </h4>
+
+              <div class="grid grid-3-cols" id="provinsi-quiz">
+                <div class="card">
+                  <img
+                    src="img/sumbar.jpg"
+                    alt="Tebak Baju Adat 1"
+                    class="quiz-image"
+                  />
+                  <input
+                    type="text"
+                    id="provinsi-1"
+                    class="input-field provinsi-input"
+                    placeholder="Asal Provinsi..."
+                  />
+                </div>
+
+                <div class="card">
+                  <img
+                    src="img/riau.jpg"
+                    alt="Tebak Baju Adat 2"
+                    class="quiz-image"
+                  />
+                  <input
+                    type="text"
+                    id="provinsi-2"
+                    class="input-field provinsi-input"
+                    placeholder="Asal Provinsi..."
+                  />
+                </div>
+
+                <div class="card">
+                  <img
+                    src="img/jawatimur.jpg"
+                    alt="Tebak Baju Adat 3"
+                    class="quiz-image"
+                  />
+                  <input
+                    type="text"
+                    id="provinsi-3"
+                    class="input-field provinsi-input"
+                    placeholder="Asal Provinsi..."
+                  />
+                </div>
+
+                <div class="card">
+                  <img
+                    src="img/jawatengah.jpg"
+                    alt="Tebak Baju Adat 4"
+                    class="quiz-image"
+                  />
+                  <input
+                    type="text"
+                    id="provinsi-4"
+                    class="input-field provinsi-input"
+                    placeholder="Asal Provinsi..."
+                  />
+                </div>
+
+                <div class="card">
+                  <img
+                    src="img/sulsel.jpg"
+                    alt="Tebak Baju Adat 5"
+                    class="quiz-image"
+                  />
+                  <input
+                    type="text"
+                    id="provinsi-5"
+                    class="input-field provinsi-input"
+                    placeholder="Asal Provinsi..."
+                  />
+                </div>
+
+                <div class="card">
+                  <img
+                    src="img/kalbar.jpg"
+                    alt="Tebak Baju Adat 6"
+                    class="quiz-image"
+                  />
+                  <input
+                    type="text"
+                    id="provinsi-6"
+                    class="input-field provinsi-input"
+                    placeholder="Asal Provinsi..."
+                  />
+                </div>
+              </div>
+              <div class="quiz-controls">
+                <button
+                  onclick="checkProvinsiAnswers()"
+                  class="btn primary-btn"
+                  style="margin-top: 20px"
+                >
+                  Cek Hasil Provinsi
+                </button>
+
+                <h3 id="hasil-skor" style="display: none"></h3>
+              </div>
+
+              <h4 class="sub-heading" style="margin-top: 40px">
+                Cocokkan Jenis Aktivitas dengan Gambar yang Sesuai!
+              </h4>
+
+              <p style="text-align: center; color: #555">
+                (Pilih angka yang sama pada Teks dan Gambar untuk mencocokkan
+                pasangan yang benar.)
+              </p>
+
+              <div class="matching-container dropdown-matching">
+                <div class="matching-source-column">
+                  <div class="match-item card">
+                    <label for="text-match-1">1. Mengikuti Kegiatan Budaya</label>
+                    <select
+                      id="text-match-1"
+                      class="input-field matching-select"
+                    >
+                      <option value="">Pilih Angka</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                    <span id="feedback-text-1" class="feedback-message"></span>
+                  </div>
+                  <div class="match-item card">
+                    <label for="text-match-2"
+                      >2. Mengenalkan Budaya ke Orang Lain</label
+                    >
+                    <select
+                      id="text-match-2"
+                      class="input-field matching-select"
+                    >
+                      <option value="">Pilih Angka</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                    <span id="feedback-text-2" class="feedback-message"></span>
+                  </div>
+                  <div class="match-item card">
+                    <label for="text-match-3"
+                      >3.  Menghormati  Budaya Orang lain</label
+                    >
+                    <select
+                      id="text-match-3"
+                      class="input-field matching-select"
+                    >
+                      <option value="">Pilih Angka</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                    <span id="feedback-text-3" class="feedback-message"></span>
+                  </div>
+                  <div class="match-item card">
+                    <label for="text-match-4">4. Memakai Pakaian Melayu di Acara Penting</label>
+                    <select
+                      id="text-match-4"
+                      class="input-field matching-select"
+                    >
+                      <option value="">Pilih Angka</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                    <span id="feedback-text-4" class="feedback-message"></span>
+                  </div>
+                  <div class="match-item card">
+                    <label for="text-match-5">5. Memakai Pakaian Melayu di Sekolah</label>
+                    <select
+                      id="text-match-5"
+                      class="input-field matching-select"
+                    >
+                      <option value="">Pilih Angka</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                    <span id="feedback-text-5" class="feedback-message"></span>
+                  </div>
+                </div>
+
+                <div class="matching-target-column">
+                  <div class="match-item card">
+                    <img
+                      src="img/hormati_budaya_lain.jpg"
+                      alt="Menghormati Budaya Orang Lain"
+                      style="width: 100%; height: 150px; object-fit: contain"
+                    />
+                    <select
+                      id="image-match-1"
+                      class="input-field matching-select"
+                    >
+                      <option value="">Pilih Angka</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                    <span id="feedback-image-1" class="feedback-message"></span>
+                  </div>
+                  <div class="match-item card">
+                    <img
+                      src="img/ikut_kegiatan_budaya.jpg"
+                      alt="Mengikuti Kegiatan Budaya"
+                      style="width: 100%; height: 150px; object-fit: contain"
+                    />
+                    <select
+                      id="image-match-2"
+                      class="input-field matching-select"
+                    >
+                      <option value="">Pilih Angka</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                    <span id="feedback-image-2" class="feedback-message"></span>
+                  </div>
+                  <div class="match-item card">
+                    <img
+                      src="img/kenalkan_budaya.jpg"
+                      alt="Mengenalkan Budaya ke Orang Lain"
+                      style="width: 100%; height: 150px; object-fit: contain"
+                    />
+                    <select
+                      id="image-match-3"
+                      class="input-field matching-select"
+                    >
+                      <option value="">Pilih Angka</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                    <span id="feedback-image-3" class="feedback-message"></span>
+                  </div>
+                  <div class="match-item card">
+                    <img
+                      src="img/pakai_melayu_sekolah.jpg"
+                      alt="Memakai Pakaian Melayu di Sekolah"
+                      style="width: 100%; height: 150px; object-fit: contain"
+                    />
+                    <select
+                      id="image-match-4"
+                      class="input-field matching-select"
+                    >
+                      <option value="">Pilih Angka</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                    <span id="feedback-image-4" class="feedback-message"></span>
+                  </div>
+                  <div class="match-item card">
+                    <img
+                      src="img/pakai_acara_penting.jpg"
+                      alt="Memakai Pakaian Melayu di Acara Penting"
+                      style="width: 100%; height: 150px; object-fit: contain"
+                    />
+                    <select
+                      id="image-match-5"
+                      class="input-field matching-select"
+                    >
+                      <option value="">Pilih Angka</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                    <span id="feedback-image-5" class="feedback-message"></span>
+                  </div>
+                </div>
+                <button
+                  onclick="checkMatchingAnswers()"
+                  class="btn primary-btn"
+                  style="margin-top: 20px"
+                >
+                  Cek Hasil Pencocokan
+                </button>
+              </div>
+
+              <div
+                id="final-result-container"
+                class="card"
+                style="margin-top: 20px; padding: 20px; display: none"
+              >
+                <p
+                  id="final-result-message"
+                  style="
+                    font-weight: bold;
+                    text-align: center;
+                    font-size: 1.2em;
+                  "
+                ></p>
+                <p id="final-result-detail" style="text-align: center"></p>
+              </div>
+
+              <h4 class="sub-heading" style="margin-top: 40px">
+                Ayo bermain MTC Flashcard dengan klik tombol di bawah ini!
+              </h4>
+
+              <div class="mtc-gallery">
+                <img
+                  src="img/mtc_karnavalpakaian.jpg"
+                  alt=""
+                />
+                <img
+                  src="img/mtc_fashionshow.jpg"
+                  alt=""
+                />
+                <img
+                  src="img/mtc_makaimelayu.jpg"
+                  alt=""
+                />
+                <img
+                  src="img/mtc_pakaipakaian.jpeg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </section>
+
+          <section id="eksplorasi" class="page-section">
+            <div class="illustration-container">
+              <img src="/img/ten_solusi.png" alt="Ilustrasi Tentukan Solusimu" class="illustration-image" />
+            </div>
+            <h4 class="section-heading">Tentukan Solusimu!</h4>
+            <div style="max-width: 1500px; margin: auto">
+              <p>
+                Tuliskan solusi terbaik untuk menyelesaikan masalah pada kolom yang tersedia!
+              </p>
+              <div style="max-width: 800px; margin: auto;">
+                <textarea
+                  id="solusi-ringkasan"
+                  class="input-field"
+                  rows="5"
+                  placeholder="Tuliskan solusi terbaik Ananda mengenai masalah tersebut di sini..."
+                  style="resize: vertical"
+                ></textarea>
+                <div style="display: flex; justify-content: center; margin-top: 10px;">
+                <button
+                  onclick="checkSolusi(this)"
+                  class="btn secondary-btn"
+                >
+                  Simpan
+                </button>
+              </div>
+              </div>
+            </div>
+          </section>
+          <section id="karyamu" class="page-section page-bg">
+            <div class="illustration-container">
+              <img src="/img/karya.png" alt="Ilustrasi Belajar Tunjukkan Karyamu" class="illustration-image" />
+            </div>
+            <h3 class="section-heading">Tunjukkan Karyamu!</h3>
+            <div style="max-width: 2000px; margin: auto; text-align: center">
+              <p>
+                Sampaikan hasil diskusi dan solusi kelompokmu di depan kelas!
+                Dengarkan tanggapan dari teman dan guru.
+              </p>
+            </div>
+          </section>
+
+          <section id="ayo-pastikan" class="page-section">
+            <div class="illustration-container">
+              <img src="/img/pastikan.png" alt="Ilustrasi Ayo Kita Pastikan" class="illustration-image" />
+            </div>
+            <h3 class="section-heading">Ayo Kita Pastikan</h3>
+
+            <div class="emodule-container" style="text-align: center">
+              <p style="margin-top: -20px; margin-bottom: 30px; font-size: 1rem;">
+                Mari kita pastikan tentang materi ini melalui ESBAMERI interaktif
+              </p>
+              <a
+                href="http://online.flipbuilder.com/fqotd/bste/"
+                target="_blank"
+                class="emodule-cover-link"
+              >
+                <div
+                  class="emodule-cover"
+                  style="
+                    display: inline-block;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                    transition: transform 0.2s;
+                  "
+                >
+                  <img
+                    src="img/cover-esbameri.png"
+                    alt="Cover E-Modul Budaya"
+                    style="display: block; width: 100%; height: auto"
+                  />
+                </div>
+              </a>
+            </div>
+          </section>
+
+          <section id="uji-kemampuan" class="page-section page-bg">
+            <div class="illustration-container">
+              <img src="/img/uji_kemampuan.png" alt="Ilustrasi Ayo Kita Uji Kemampuan" class="illustration-image" />
+            </div>
+            <h3 class="section-heading">Ayo Kita Uji Kemampuan!</h3>
+            <div style="max-width: 600px; margin: auto">
+              <div class="quiz-input-group">
+                <label for="student-name-quiz" class=""
+                  >Nama Siswa:</label
+                >
+                <input
+                  type="text"
+                  id="student-name-quiz"
+                  class="input-field"
+                  placeholder="Masukkan Nama Lengkap Anda"
+                  required
+                />
+              </div>
+
+              <div
+                class="quiz-progress-container"
+                style="margin-top: 20px; margin-bottom: 20px"
+              >
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 5px;
+                  "
+                >
+                  <span style="font-size: 0.9em; color: #555">Progress:</span>
+                  <span
+                    id="progressText"
+                    style="font-size: 0.9em; font-weight: 600; color: #333"
+                    >0 / 10</span
+                  >
+                </div>
+                <div
+                  class="progress-bar-background"
+                  style="
+                    background-color: #e0e0e0;
+                    border-radius: 4px;
+                    height: 10px;
+                    overflow: hidden;
+                  "
+                >
+                  <div
+                    id="progressBar"
+                    class="progress-bar-foreground"
+                    style="
+                      width: 0%;
+                      height: 100%;
+                      background-color: rgb(38, 128, 206);
+                      transition: width 0.5s ease;
+                    "
+                  ></div>
+                </div>
+              </div>
+
+              <div id="quiz-intro-box" class="quiz-question-card card">
+                <h4
+                  class="quiz-question-text"
+                  style="margin-top: 0"
+                >
+                  Jawablah pertanyaan dibawah ini sesuai dengan pemahaman
+                  Ananda!
+                </h4>
+                <p>
+                  Bacalah cerita singkat dibawah ini, untuk menjawab pertanyaan
+                  no 1! Sekolah Amelia mengadakan Hari Budaya. Semua murid
+                  memakai pakaian adat. Ada yang memakai baju Jawa, Minang,
+                  Batak, dan Riau. Amelia memakai baju Melayu Riau. Mereka
+                  saling bertukar cerita tentang pakaian adat masing-masing.
+                </p>
+              </div>
+
+              <div id="quizContainer" style="position: relative"></div>
+
+              <div
+                class="quiz-navigation"
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  margin-top: 20px;
+                "
+              >
+                <button
+                  id="prevBtn"
+                  onclick="navigateQuiz(-1)"
+                  class="btn secondary-btn"
+                  disabled
+                >
+                  Sebelumnya
+                </button>
+                <span id="questionNumber" style="font-weight: 600; color: #555">
+                  Soal 1 dari 10
+                </span>
+                <button
+                  id="nextBtn"
+                  onclick="navigateQuiz(1)"
+                  class="btn primary-btn"
+                >
+                  Selanjutnya
+                </button>
+              </div>
+
+              <div
+                id="submitSection"
+                style="text-align: center; margin-top: 20px; display: none"
+              >
+                <button
+                  onclick="submitQuiz()"
+                  class="btn primary-btn"
+                  style="
+                    /* background-color: #ffd700; */
+                    border-color: #31c7ff;
+                    font-size: 1.1em;
+                  "
+                >
+                  Kirim Jawaban Anda
+                </button>
+              </div>
+
+              <div id="resultSection" style="display: none; margin-top: 20px">
+                <div class="card" style="text-align: center; padding: 25px">
+                  <h3 class="sub-heading" style="margin-top: 0">
+                    Hasil Quiz Anda
+                  </h3>
+                  <div
+                    id="scoreDisplay"
+                    style="
+                      font-size: 3em;
+                      font-weight: 700;
+                      color: rgb(38, 128, 206);
+                      margin: 10px 0;
+                    "
+                  >
+                    0/10
+                  </div>
+                  <p
+                    id="scoreMessage"
+                    style="font-size: 1.1em; color: rgb(38, 128, 206); margin-bottom: 20px"
+                  >
+                    Selamat!
+                  </p>
+                  <button
+                    onclick="window.location.href='/pembelajaran'"
+                    class="btn primary-btn"
+                    style="width: auto"
+                  >
+                    Ulangi Quiz
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      <aside class="side-frame right-frame">
+        <img src="img/kanan_rebung.png" alt="" />
+      </aside>
+      </main>
+
+      <footer>
+        <p>&copy; kupukupubirujuara@gmail.com</p>
+      </footer>
+    </div>
+    <script>
+        // Injeksi data dari server ke variabel JavaScript
+        // Variabel ini sekarang berada di GLOBAL scope halaman HTML
+        const SERVER_QUESTIONS = <%- JSON.stringify(questions) %>;
+    </script>
+    <script src="/newscript.js"></script>
+  </body>
+</html>
